@@ -8,6 +8,15 @@ What if my main state gets created / updated in a different component?
 
 
 
+Key Questions
+What is a lifecycle method? What are they methods of?
+What calls lifecycle methods? Do I need to call lifecycle methods?
+What lifecycle method should we fetch in?
+Do I need to memorize all of these?
+http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+
+
 
 
 

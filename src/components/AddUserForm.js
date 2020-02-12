@@ -1,4 +1,5 @@
 import React from 'react'
+import {Button} from 'react-bootstrap'
 
 export default class AddUserForm extends React.Component {
 
@@ -70,9 +71,9 @@ export default class AddUserForm extends React.Component {
                 onChange={(event)=> this.onChange(event)}
                 />
                 
-                <button type="submit">
+                <Button type="submit">
                     Submit
-                </button>
+                </Button>
 
             </form>
         )
