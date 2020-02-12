@@ -1,0 +1,58 @@
+{
+    "users" : [
+        {
+        "id": 1,
+        "name": "Brian Thomas",
+        "username": "Brian",
+        "email": "Brian@april.biz"
+        },
+        {
+        "id": 2,
+        "name": "Bryson Boyd",
+        "username": "Bryson",
+        "email": "Bryson@melissa.tv"
+        },
+        {
+        "id": 3,
+        "name": "Jaylen Peebles",
+        "username": "Jaylen",
+        "email": "Jaylen@yesenia.net"
+        },
+        {
+        "id": 4,
+        "name": "Joseph Mills",
+        "username": "Joseph",
+        "email": "Joseph@yesenia.net"
+        },
+        {
+        "id": 5,
+        "name": "justin Knight",
+        "username": "justin",
+        "email": "justin@yesenia.net"
+        },
+        {
+        "id": 6,
+        "name": "Kanen Borrero",
+        "username": "Kanen",
+        "email": "Kanen@yesenia.net"
+        },
+        {
+        "id": 7,
+        "name": "Liam Simko",
+        "username": "Liam",
+        "email": "Nathan@yesenia.net"
+        },
+        {
+        "id": 8,
+        "name": "Kobi Hsu",
+        "username": "Liam",
+        "email": "Nathan@yesenia.net"
+        },
+        {
+        "id": 9,
+        "name": "Michael Delrosario",
+        "username": "Michael",
+        "email": "Michael@yesenia.net"
+        }
+        ]
+}

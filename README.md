@@ -1,3 +1,32 @@
+How do forms work in React?
+What is a controlled form input?
+What kind of event listeners should I use with my form?
+What kind of event listeners should I use with my form inputs?
+How can I share one event listener between all my form inputs?
+What should I do when the form gets submitted?
+What if my main state gets created / updated in a different component?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
