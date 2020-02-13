@@ -1,24 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import UsersContainer from './components/UsersContainer';
 import AddUserForm from './components/AddUserForm';
 import './App.css'
 import { Container, Row } from 'react-bootstrap'
 
+const URL = 'http://localhost:3004/users/'
 
-export default class App extends Component {
 
-  constructor(props){
-    super(props)
-    this.state = {
-      users : []
-    }
-  }
+export default function App (){
 
-  //arguments coming from usersForm
-  addUser = (event, name, username, email) =>{ 
+  const [users, setUsers] = useState([])
+
+  useEffect( () => {
+
+    fetch(URL)
+    .then((resp) => resp.json())
+    .then(usersArray => {
+      setUsers(usersArray)
+    })
+
+  }, [])
+
+  const addUser = (event, name, username, email) => { 
     event.preventDefault()
 
-            fetch(`http://localhost:3004/users`, {
+            fetch( URL , {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -32,24 +38,15 @@ export default class App extends Component {
         .then(resp => resp.json())
         .then(user => {
 
-          this.setState({
-            users: this.state.users.concat(user)
-          })
+          setUsers(users.concat(user))
+
       })
-   }
+  }
 
 
+  const deleteUser = (id) => {
 
-    // Adding user to our state
-    // this.setState({
-    //   // users: [...this.state.users, newUser]
-    //   users: this.state.users.concat(newUser)
-    // })
-
-  // Deleting user from our state
-  deleteUser = (id) => {
-
-     fetch(`http://localhost:3004/users/${id}`, {
+     fetch( URL + id, {
          method: "DELETE",
          headers: {
              'Content-Type': 'application/json'
@@ -57,50 +54,25 @@ export default class App extends Component {
       })
      .then(resp => {
        if (resp.status === 200){
-        this.setState({
-            users: this.state.users.filter( user => user.id !== id)
-          })
+
+        setUsers( users.filter( user => user.id !== id) )
        }
       }) 
   }
 
-  
-  render(){
-    // console.log("rendering")
     return (
       <Container>
       <Row>
       
-            <AddUserForm  addUser={this.addUser}/>
+            <AddUserForm  addUser={addUser}/>
             <UsersContainer 
-              users={this.state.users}
-              deleteUser={this.deleteUser}
+              users={users.reverse()}
+              deleteUser={deleteUser}
             />
           
             </Row>
           </Container>
     );
-    
-  }
-
-
-  componentDidMount(){
-
-   fetch('http://localhost:3004/users/')
-    .then((resp) => resp.json())
-    .then(usersArray => {
-      this.setState({
-        // users: [...this.state.users, newUser]
-        users: usersArray
-      })
-    })
-  } 
-
-  // componentDidUpdate(){
-  //   console.log("I updated! App Component")
-  //    console.log("\n")
-  // }
-
 }
   
   

@@ -1,38 +1,29 @@
-import React, { Component, Fragment } from 'react'
+import React from 'react'
 import DisplayUser from './DisplayUser'
 // import PropTypes from 'prop-types'
 
 import { Container, Row } from 'react-bootstrap' //styling
 
 
-export default class UsersContainer extends Component {
-
-    render() {
-        return (
-            <Fragment>
-                <Fragment>
-                    <p>some text</p>
-                </Fragment>
+const UsersContainer = ({users, deleteUser}) => (
 
                 <Container style={{marginTop : "20px"}}>
                     <Row>
 
-                    {this.props.users.map( user => (
+                    {users.map( user => (
                                                             <DisplayUser 
                                                                 user={user}  
                                                                 key={user.id}
-                                                                deleteUser={this.props.deleteUser}
+                                                                deleteUser={deleteUser}
                                                             />)
                     )}
                     
                     </Row>
                 </Container>
-            </Fragment>
-            
-                
+
         )
-    }
-}
+
+export default UsersContainer;
 
 
 

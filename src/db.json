@@ -1,36 +1,6 @@
 {
   "users": [
     {
-      "id": 2,
-      "name": "Bryson Boyd",
-      "username": "Bryson",
-      "email": "Shanna@melissa.tv"
-    },
-    {
-      "id": 3,
-      "name": "Jaylen Peebles",
-      "username": "Jaylen",
-      "email": "Nathan@yesenia.net"
-    },
-    {
-      "id": 6,
-      "name": "Kanen Borrero",
-      "username": "Kanen",
-      "email": "Nathan@yesenia.net"
-    },
-    {
-      "id": 7,
-      "name": "Liam Simko",
-      "username": "Liam",
-      "email": "Nathan@yesenia.net"
-    },
-    {
-      "id": 8,
-      "name": "Kobi Hsu",
-      "username": "Kobi",
-      "email": "Nathan@yesenia.net"
-    },
-    {
       "id": 9,
       "name": "Michael Delrosario",
       "username": "Michael",
@@ -47,6 +17,36 @@
       "username": "franklyn",
       "email": "frankly",
       "id": 13
+    },
+    {
+      "name": "Kobi",
+      "username": "ENV.LOCAL",
+      "email": "@kobiRocks.com",
+      "id": 14
+    },
+    {
+      "name": "Kobi",
+      "username": "ENV.LOCAL",
+      "email": "@kobiRocks.com",
+      "id": 15
+    },
+    {
+      "name": "Kobi",
+      "username": "ENV.LOCAL",
+      "email": "@kobiRocks.com",
+      "id": 16
+    },
+    {
+      "name": "Kobi",
+      "username": "ENV.LOCAL",
+      "email": "@kobiRocks.com",
+      "id": 17
+    },
+    {
+      "name": "Kobi",
+      "username": "ENV.LOCAL",
+      "email": "@kobiRocks.com",
+      "id": 18
     }
   ]
 }
