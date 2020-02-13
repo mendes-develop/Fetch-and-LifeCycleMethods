@@ -1,21 +1,50 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import UsersContainer from './components/UsersContainer';
 import AddUserForm from './components/AddUserForm';
 import './App.css'
 import { Container, Row } from 'react-bootstrap'
 
 
-export default class App extends Component {
+export default function App(){
 
-  constructor(props){
-    super(props)
-    this.state = {
-      users : []
-    }
-  }
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     users : []
+  //   }
+  // }
+  const [users, setUsers] = useState([])
+
+  useEffect( ()=> {
+
+      fetch('http://localhost:3004/users/')
+     .then((resp) => resp.json())
+     .then(usersArray => {
+      //  this.setState({
+      //    users: usersArray
+      //  })
+      setUsers(usersArray)
+     })
+  }, [])
+
+  // useEffect(()=> {
+
+  // }, [users] )
+
+  // componentDidMount(){
+
+  //   fetch('http://localhost:3004/users/')
+  //    .then((resp) => resp.json())
+  //    .then(usersArray => {
+  //      this.setState({
+  //        // users: [...this.state.users, newUser]
+  //        users: usersArray
+  //      })
+  //    })
+  //  } 
 
   //arguments coming from usersForm
-  addUser = (event, name, username, email) =>{ 
+  const addUser = (event, name, username, email) =>{ 
     event.preventDefault()
 
             fetch(`http://localhost:3004/users`, {
@@ -32,9 +61,11 @@ export default class App extends Component {
         .then(resp => resp.json())
         .then(user => {
 
-          this.setState({
-            users: this.state.users.concat(user)
-          })
+          setUsers(users.concat(user))
+
+          // this.setState({
+          //   users: this.state.users.concat(user)
+          // })
       })
    }
 
@@ -47,7 +78,7 @@ export default class App extends Component {
     // })
 
   // Deleting user from our state
-  deleteUser = (id) => {
+  const deleteUser = (id) => {
 
      fetch(`http://localhost:3004/users/${id}`, {
          method: "DELETE",
@@ -57,44 +88,36 @@ export default class App extends Component {
       })
      .then(resp => {
        if (resp.status === 200){
-        this.setState({
-            users: this.state.users.filter( user => user.id !== id)
-          })
+        // this.setState({
+        //     users: this.state.users.filter( user => user.id !== id)
+        //   })
+        // setUsers()
+        setUsers(users.filter( user => user.id !== id))
        }
       }) 
   }
 
   
-  render(){
+  
     // console.log("rendering")
     return (
       <Container>
       <Row>
       
-            <AddUserForm  addUser={this.addUser}/>
+            <AddUserForm  addUser={addUser}/>
             <UsersContainer 
-              users={this.state.users}
-              deleteUser={this.deleteUser}
+              users={users.reverse()}
+              deleteUser={deleteUser}
             />
           
             </Row>
           </Container>
     );
     
-  }
+  
 
 
-  componentDidMount(){
-
-   fetch('http://localhost:3004/users/')
-    .then((resp) => resp.json())
-    .then(usersArray => {
-      this.setState({
-        // users: [...this.state.users, newUser]
-        users: usersArray
-      })
-    })
-  } 
+  
 
   // componentDidUpdate(){
   //   console.log("I updated! App Component")

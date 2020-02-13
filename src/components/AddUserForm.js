@@ -1,25 +1,29 @@
-import React from 'react'
-import {Button} from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Button } from 'react-bootstrap'
 
-export default class AddUserForm extends React.Component {
+export default function AddUserForm ({addUser}) {
 
-    state = {
-        name:"",
-        username:"",
-        email:""
-    }
+    // state = {
+    //     name:"",
+    //     username:"",
+    //     email:""
+    // }
+    const [name, setName] = useState("")
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    // useState()=> [ state.name, this.setState({name:})]
 
-    onChange = (event) => {
-        // const inputValue = event.target.value
-        // const inputName = event.target.name
+    // const onChange = (event) => {
+    //     // const inputValue = event.target.value
+    //     // const inputName = event.target.name
 
-        // console.log(inputValue)
-        // console.log(inputName)
+    //     // console.log(inputValue)
+    //     // console.log(inputName)
 
-        this.setState({
-            [event.target.name] : event.target.value
-        })
-    }
+    //     this.setState({
+    //         [event.target.name] : event.target.value
+    //     })
+    // }
 
         
         
@@ -40,27 +44,27 @@ export default class AddUserForm extends React.Component {
     // }
 
 
-    render(){
+   
         // console.log(this.props)
-        const {name, username, email} = this.state
+        // const {name, username, email} = this.state
 
         return (
 
 
             <form
-                onSubmit={(event)=> this.props.addUser(event, name, username, email)}
+                onSubmit={(event)=> addUser(event, name, username, email)}
             >
                 <label>Name</label>
                 <input  
                     name="name" 
-                    onChange={(event)=> this.onChange(event)}
+                    onChange={(event)=> setName(event.target.value)}
                     value={name}
                 />
                 
                 <label>Username</label>
                 <input 
                     name="username" 
-                    onChange={(event)=> this.onChange(event)}
+                    onChange={(event)=> setUsername(event.target.value)}
                     value={username}
                 />
             
@@ -68,7 +72,7 @@ export default class AddUserForm extends React.Component {
                 <input
                 name="email" 
                 value={email}
-                onChange={(event)=> this.onChange(event)}
+                onChange={(event)=> setEmail(event.target.value)}
                 />
                 
                 <Button type="submit">
@@ -77,5 +81,5 @@ export default class AddUserForm extends React.Component {
 
             </form>
         )
-    }
+    
 }

@@ -1,40 +1,31 @@
-import React, { Component, Fragment } from 'react'
-import DisplayUser from './DisplayUser'
+import React, { Fragment } from "react";
+import DisplayUser from "./DisplayUser";
 // import PropTypes from 'prop-types'
 
-import { Container, Row } from 'react-bootstrap' //styling
+import { Container, Row } from "react-bootstrap"; //styling
 
+export default function UsersContainer( {users, deleteUser} ) {
 
-export default class UsersContainer extends Component {
+  return (
+    <Fragment>
+      <Fragment>
+        <p>some text</p>
+      </Fragment>
 
-    render() {
-        return (
-            <Fragment>
-                <Fragment>
-                    <p>some text</p>
-                </Fragment>
-
-                <Container style={{marginTop : "20px"}}>
-                    <Row>
-
-                    {this.props.users.map( user => (
-                                                            <DisplayUser 
-                                                                user={user}  
-                                                                key={user.id}
-                                                                deleteUser={this.props.deleteUser}
-                                                            />)
-                    )}
-                    
-                    </Row>
-                </Container>
-            </Fragment>
-            
-                
-        )
-    }
+      <Container style={{ marginTop: "20px" }}>
+        <Row>
+          {users.map(user => (
+            <DisplayUser
+              user={user}
+              key={user.id}
+              deleteUser={deleteUser}
+            />
+          ))}
+        </Row>
+      </Container>
+    </Fragment>
+  );
 }
-
-
 
 // Users.propTypes = {
 //     deleteUser: PropTypes.func.isRequired,
@@ -51,5 +42,3 @@ export default class UsersContainer extends Component {
 //         "website": "hildegard.org"
 //     }
 // }
-
-

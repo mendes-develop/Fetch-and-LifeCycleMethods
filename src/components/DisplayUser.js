@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 
 import { Card, Button } from 'react-bootstrap' //styling
 
-export default class DisplayUser extends Component {
+export default function DisplayUser ({user, deleteUser}) {
 
     //access props and display each element on its own div
 
  
 
-    render() {
+    
 
         // const { deleteUser, user } = this.props
 
@@ -18,17 +18,17 @@ export default class DisplayUser extends Component {
             <Card  style={{ width: '18rem' }} >
             <div>
 
-                <h3>{this.props.user.username}</h3>
-                <p>name:{this.props.user.name}</p>
-                <p>email:{this.props.user.email}</p>
+                <h3>{user.username}</h3>
+                <p>name:{user.name}</p>
+                <p>email:{user.email}</p>
 
-                <Button variant="danger" onClick={ () => this.props.deleteUser(this.props.user.id)}>
+                <Button variant="danger" onClick={ () => deleteUser(user.id)}>
                     Delete User 
                 </Button>
             </div>
         </Card>
         )
-    }
+    
 
     // componentDidMount(){
     // console.log("'I mount, therefore I am.' DisplayUser Component")  
@@ -40,10 +40,10 @@ export default class DisplayUser extends Component {
     // console.log("\n")
     // }
 
-    componentWillUnmount(){
-        console.log("Here lies a great DisplayUser Component")
-        window.alert("user will be destroyed")
-    }
+    // componentWillUnmount(){
+    //     console.log("Here lies a great DisplayUser Component")
+    //     window.alert("user will be destroyed")
+    // }
 
 
 }
