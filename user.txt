@@ -1,0 +1,56 @@
+[
+{
+"id": 1,
+"name": "Brian Thomas",
+"username": "Brian",
+"email": "Sincere@april.biz"
+},
+{
+"id": 2,
+"name": "Bryson Boyd",
+"username": "Bryson",
+"email": "Shanna@melissa.tv"
+},
+{
+"id": 3,
+"name": "Jaylen Peebles",
+"username": "Jaylen",
+"email": "Nathan@yesenia.net"
+},
+{
+"id": 4,
+"name": "Joseph Mills",
+"username": "Joseph",
+"email": "Nathan@yesenia.net"
+},
+{
+"id": 5,
+"name": "justin Knight",
+"username": "justin",
+"email": "Nathan@yesenia.net"
+},
+{
+"id": 6,
+"name": "Kanen Borrero",
+"username": "Kanen",
+"email": "Nathan@yesenia.net"
+},
+{
+"id": 7,
+"name": "Liam Simko",
+"username": "Liam",
+"email": "Nathan@yesenia.net"
+},
+{
+"id": 8,
+"name": "Kobi Hsu",
+"username": "Kobi",
+"email": "Nathan@yesenia.net"
+},
+{
+"id": 9,
+"name": "Michael Delrosario",
+"username": "Michael",
+"email": "Nathan@yesenia.net"
+}
+]

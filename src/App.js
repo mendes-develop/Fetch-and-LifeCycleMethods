@@ -61,10 +61,7 @@ export default class App extends Component {
             users: this.state.users.filter( user => user.id !== id)
           })
        }
-      })
-
-
-    
+      }) 
   }
 
   
@@ -82,7 +79,6 @@ export default class App extends Component {
           
             </Row>
           </Container>
-          
     );
     
   }
@@ -155,8 +151,8 @@ export default class App extends Component {
 
 
 // MODIFYING A USER
-//         fetch(`http://localhost:3000/users/${1}`, {
-//             method: "PATCH", //     "PUT"=> UPDATES ALL ATTRIBUTES
+//         fetch(`http://localhost:3000/users/${id}`, {
+//             method: "PATCH", //                          "PUT"=> UPDATES ALL ATTRIBUTES
 //             headers: {
 //                 'Content-Type': 'application/json'
 //             },
