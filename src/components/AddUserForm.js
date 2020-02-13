@@ -52,6 +52,7 @@ export default function AddUserForm ({addUser}) {
 
 
             <form
+                id="form"
                 onSubmit={(event)=> addUser(event, name, username, email)}
             >
                 <label>Name</label>
