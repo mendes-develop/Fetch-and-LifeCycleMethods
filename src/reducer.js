@@ -11,7 +11,7 @@ let defaultState = {
 
 
 export default function reducer(state = defaultState, action){
-    console.log(action)
+    // console.log(action)
     switch(action.type){
 
         case "GET_USERS": 

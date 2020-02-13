@@ -18,6 +18,7 @@ export default function App(){
   // }
 
   const users = useSelector(state => state.users) //Array of Users
+
   const dispatch = useDispatch() // this is a function() + dispatch({type, payload}) 
 
 
