@@ -1,25 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import UsersContainer from './components/UsersContainer';
 import AddUserForm from './components/AddUserForm';
-import './App.css'
+
 import { Container, Row } from 'react-bootstrap'
+import './App.css'
+
+//Redux 
+import { useSelector, useDispatch } from "react-redux";
 
 const URL = 'http://localhost:3004/users/'
 
 
 export default function App (){
 
-  const [users, setUsers] = useState([])
+  // const [users, setUsers] = useState([])
+  const users = useSelector(state => state.users)
+  const dispatch = useDispatch()
 
   useEffect( () => {
 
     fetch(URL)
     .then((resp) => resp.json())
     .then(usersArray => {
-      setUsers(usersArray)
+
+      ////dispatch( action ==== { type: "GET_USERS", payload: data }  )  data = [users]
+      dispatch({type: "GET_USERS", payload: usersArray})
+
     })
 
-  }, [])
+  }, [dispatch])
 
   const addUser = (event, name, username, email) => { 
     event.preventDefault()
@@ -38,7 +47,9 @@ export default function App (){
         .then(resp => resp.json())
         .then(user => {
 
-          setUsers(users.concat(user))
+          // setUsers(users.concat(user))
+          dispatch({type: "ADD_USER", payload: user})
+          
 
       })
   }
@@ -55,7 +66,8 @@ export default function App (){
      .then(resp => {
        if (resp.status === 200){
 
-        setUsers( users.filter( user => user.id !== id) )
+        // setUsers( users.filter( user => user.id !== id) )
+        dispatch({type: "REMOVE_USER", payload: id})
        }
       }) 
   }
