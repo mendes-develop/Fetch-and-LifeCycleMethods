@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import UsersContainer from './components/UsersContainer';
 import AddUserForm from './components/AddUserForm';
 import './App.css'
 import { Container, Row } from 'react-bootstrap'
+
+// React-Redux
+import { useSelector, useDispatch} from 'react-redux'
 
 
 export default function App(){
@@ -13,7 +16,12 @@ export default function App(){
   //     users : []
   //   }
   // }
-  const [users, setUsers] = useState([])
+
+  const users = useSelector(state => state.users) //Array of Users
+  const dispatch = useDispatch() // this is a function() + dispatch({type, payload}) 
+
+
+  // const [users, setUsers] = useState([])
 
   useEffect( ()=> {
 
@@ -23,9 +31,10 @@ export default function App(){
       //  this.setState({
       //    users: usersArray
       //  })
-      setUsers(usersArray)
+      // setUsers(usersArray)
+      dispatch({type: "GET_USERS", payload: usersArray})
      })
-  }, [])
+  }, [dispatch])
 
   // useEffect(()=> {
 
@@ -61,11 +70,12 @@ export default function App(){
         .then(resp => resp.json())
         .then(user => {
 
-          setUsers(users.concat(user))
+          // setUsers(users.concat(user))
 
           // this.setState({
           //   users: this.state.users.concat(user)
           // })
+          dispatch({type: "ADD_USER", payload: user})
       })
    }
 
@@ -92,7 +102,8 @@ export default function App(){
         //     users: this.state.users.filter( user => user.id !== id)
         //   })
         // setUsers()
-        setUsers(users.filter( user => user.id !== id))
+        // setUsers(users.filter( user => user.id !== id))
+        dispatch({type: "DELETE_USER", payload: id})
        }
       }) 
   }
